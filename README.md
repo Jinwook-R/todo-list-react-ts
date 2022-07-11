@@ -1,4 +1,4 @@
-# React + TypeScript ToDoList 개발
+# React + TypeScript ToDoList
 
 ## 기술 스택
 
