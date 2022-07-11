@@ -2,7 +2,6 @@ import { createContext, useContext } from "react";
 import { v4 } from "uuid";
 import useLocalStorage from '../hooks/useLocalStroage';
 
-
 interface Task {
   id: string;
   content: string;
@@ -21,10 +20,11 @@ export const useTasks = () => useContext(TaskContext);
 
 interface Props {
   children: any;
+  initialTasks?: Task[];
 }
 
-const TaskProvider = ({children}: Props) => {
-  const [tasks, setTasks] = useLocalStorage<Task[]>('tasks', []);
+const TaskProvider = ( { children, initialTasks = []}: Props ) => {
+  const [tasks, setTasks] = useLocalStorage<Task[]>('tasks', initialTasks);
   
   const addTask = (content: string) => {
     setTasks([
@@ -40,7 +40,7 @@ const TaskProvider = ({children}: Props) => {
   const updateTask = (id: string, status: boolean) => {
     setTasks(
       tasks.map((item) => item.id === id ? {...item, complete: status} : item)
-    )
+    );
   }
 
   const removeTask = (id: string) => {
@@ -49,7 +49,7 @@ const TaskProvider = ({children}: Props) => {
   
   return (
     <TaskContext.Provider value={{ tasks, addTask, updateTask, removeTask }}>
-      {children}
+      { children }
     </TaskContext.Provider>
   );
 }

@@ -6,5 +6,5 @@ export default {
 }
 
 export const Default = () => {
-  return <Task content="Todo" complete></Task>
+  return <Task id='1' content="Todo" complete></Task>
 }
