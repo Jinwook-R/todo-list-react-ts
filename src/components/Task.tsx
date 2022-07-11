@@ -17,7 +17,7 @@ const Task = ({ key, id, content, complete, ...props }: Props) => {
       <Content complete={complete}>{content}</Content>
       <RemoveButton onClick={() => removeTask(id)}>Remove</RemoveButton>
     </ListItem>
-  )
+  );
 }
 
 export default Task;
@@ -34,7 +34,6 @@ const ListItem = styled.li`
   list-style: none;
   box-sizing: border-box;
 `
-
 const Content = styled.span<{complete: boolean}>`
   display: inline-block;
   flex: 1;

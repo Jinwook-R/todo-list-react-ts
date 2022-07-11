@@ -2,8 +2,7 @@ import styled from "@emotion/styled";
 import { FormEvent, useState } from "react";
 import { useTasks } from "../contexts/TaskProvider";
 
-const NewTaskForm = (props:any) => {
-
+const NewTaskForm = (props: any) => {
     const [task, setTask] = useState('');
     const { addTask } = useTasks();
 
@@ -17,9 +16,7 @@ const NewTaskForm = (props:any) => {
     <Form {...props} onSubmit={handleSubmit}>
         <Input type='text' value={task} onChange={(e) => setTask(e.target.value)} required />
         <SubmitButton>Add</SubmitButton>
-    </Form>)
-
-
+    </Form>);
 }
 
 export default NewTaskForm;
