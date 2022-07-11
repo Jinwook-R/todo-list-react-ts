@@ -14,7 +14,7 @@ function App() {
     <TaskProvider>
       <Container>
         <Header>Todo</Header>
-        <NewTaskForm/>
+        <NewTaskForm />
         <TaskList css={{marginTop:16}}></TaskList>
       </Container>
     </TaskProvider>
